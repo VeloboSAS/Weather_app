@@ -15,7 +15,7 @@ def get_weather(city):
     result = requests.get(url.format(city, api_key))
     if result:
         json = result.json()
-        #(City, Country, temp_celsius, icon, weather)
+        # (City, Country, temp_celsius, icon, weather)
         city = json['name']
         country = json['sys']['country']
         temp_kelvin = json['main']['temp']
@@ -25,7 +25,7 @@ def get_weather(city):
         final = (city, country, temp_celsius, icon, weather)
         return final
     else:
-        return  None
+        return None
 
 
 def search():
@@ -38,8 +38,6 @@ def search():
         weather_lbl['text'] = weather[4]
     else:
         messagebox.showerror('Error', 'Cannot find city {}'.format(city))
-
-
 
 
 app = Tk()
@@ -64,9 +62,5 @@ temp_lbl.pack()
 
 weather_lbl = Label(app, text='')
 weather_lbl.pack()
-
-
-
-
 
 app.mainloop()
